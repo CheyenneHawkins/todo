@@ -67,8 +67,8 @@ function listProjects(x){
             // x[i].tasks.push(`${i}`);
 
         //title and items values
-        projTitle.textContent = x[i].title;
-        projItems.textContent = x[i].items;
+        projTitle.textContent = 'ohoh';
+        projItems.textContent = 'ohoh';
         
         //append to project div
         projList.appendChild(projTitle);
@@ -92,8 +92,92 @@ function listProjects(x){
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "addButtonClick": () => (/* binding */ addButtonClick),
 /* harmony export */   "addProject": () => (/* binding */ addProject)
 /* harmony export */ });
+
+    let projectName = '';
+
+function addButtonClick(){
+
+    function popUp(){
+        //find popup div
+        const pop = document.querySelector('#popup');
+    
+        //make entry box
+        function getProjectInfo (){
+                let entryName ='';
+                //box
+                const entryBox = document.createElement('div');
+                
+                //set attributes
+                entryBox.classList.add('popupbox');
+                entryBox.setAttribute('id', 'popupbox');
+                
+                //append to popup div
+                pop.appendChild(entryBox);
+        
+                const entryLabel = document.createElement('div');
+                entryLabel.classList.add('entrylabel');
+                entryLabel.setAttribute('id', 'entrylabel');
+                entryLabel.textContent = 'Project Name:'
+                entryBox.appendChild(entryLabel);
+                
+                const entryInput = document.createElement('div');
+                entryInput.classList.add('entryinput');
+                entryInput.setAttribute('id', 'entryinput');
+                const entryField = document.createElement('input');
+                entryField.classList.add('entryfield');
+                entryField.setAttribute('id', 'entryfield');
+                entryInput.appendChild(entryField);
+                entryBox.appendChild(entryInput);
+                const entrySubmit = document.createElement('button');
+                entryBox.appendChild(entrySubmit);
+        
+                entrySubmit.addEventListener('click', getName)
+                
+                //grabs whatever is in entry field
+                function getName (){
+                    entryName = document.getElementById('entryfield')
+                    projectName = entryName.value; 
+                    console.log(projectName);
+                    pop.innerHTML = '';
+                    pop.style.display = "none";
+                }
+                
+                //exit popup function
+                function exitEntry (){
+                    pop.innerHTML = '';
+                    pop.style.display = "none";
+                    document.removeEventListener('keydown', event);
+
+                }
+                //listener to escape or enter popup 
+                document.addEventListener('keydown', function(event){
+                    if(event.key === "Escape"){
+                        exitEntry();
+                    } else if (event.key === "Enter"){
+                        getName();
+                    }
+                })
+                return entryName.value;
+        };
+    
+        const getProjectInfoFunc =  getProjectInfo();
+
+        getProjectInfoFunc;
+
+        pop.style.display = "grid";
+    
+    };
+    const runPop = popUp();
+    runPop;
+
+}
+
+
+//HOW DO I GET entryName OUT OF THE OTHER FUNCTION?!!!
+
 function addProject(){
 
     console.log("MAKE PROJECT WORKS")
@@ -183,17 +267,20 @@ __webpack_require__.r(__webpack_exports__);
  
  
 
+//holder for project name
+// const projectName = '';
+
 //holder for projects
 const projectArray = [];
 
 //test connection
-console.log("IT'S STILL LIVE AGAIN!!!");
+console.log("IT'S STILL LIVE AGAIN NOW!!!");
 
 //log initial array
 console.table(projectArray);
 
 const addButton = document.getElementById('additem');
-addButton.addEventListener('click', runShowArray);
+addButton.addEventListener('click', _makeproject_js__WEBPACK_IMPORTED_MODULE_0__.addButtonClick);
 
 function runShowArray(){
     console.table(projectArray);
@@ -203,11 +290,14 @@ function runShowArray(){
 
 }
 
+// runShowArray();
+
 //add project
 // projectArray.push(addProject());
 // projectArray.push(addProject());
 
 //log project with new object
+
 
 })();
 

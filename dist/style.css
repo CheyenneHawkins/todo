@@ -98,6 +98,7 @@ input {
 
 }
 .account {
+    cursor: default;
 
 }
 .settings {
@@ -138,6 +139,53 @@ input {
     border-right: var(--sidebarborder) solid 2px;
     /* border-radius: 15px; */
 }
+
+.popup {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.575);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.popupbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 450px;
+    background-color: rgba(255, 255, 255, 0.784);
+    border-radius: 25px;
+    justify-content: center;
+    grid-gap: 20px;
+    z-index: 4;
+
+}
+
+.popupbox > * {
+    /* border: red solid 1px; */
+
+}
+
+.popupbox button {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        border: 0;
+        background-color: #c5cad0;
+
+}
+
+.popupbox button:active {
+    transform: scale(.9);
+
+}
+
+
 
 .project {
     margin: 15px;

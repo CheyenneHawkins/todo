@@ -23,8 +23,8 @@ function listProjects(x){
             // x[i].tasks.push(`${i}`);
 
         //title and items values
-        projTitle.textContent = x[i].title;
-        projItems.textContent = x[i].items;
+        projTitle.textContent = 'ohoh';
+        projItems.textContent = 'ohoh';
         
         //append to project div
         projList.appendChild(projTitle);
