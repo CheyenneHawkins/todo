@@ -101,6 +101,13 @@ input {
     cursor: default;
 
 }
+
+.account span{
+    padding-top: 8px;
+    padding-left: 5px;
+
+}
+
 .settings {
 
 }
@@ -141,7 +148,7 @@ input {
 }
 
 .popup {
-    display: none;
+    /* display: none; */
     position: fixed;
     background-color: rgba(0, 0, 0, 0.575);
     height: 100vh;
@@ -150,6 +157,10 @@ input {
     align-items: center;
     justify-content: center;
 
+}
+
+.inactive {
+    display: none; 
 }
 
 .popupbox {
@@ -195,16 +206,18 @@ input {
 }
 
 .project > * {
-    border: red solid 1px;
+    /* border: red solid 1px; */
     
 }
 
 .titles {
+    cursor: pointer;
     color: black;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2vw;
 }
 
 .items {
@@ -215,10 +228,41 @@ input {
     padding-left: 15px;
     color: darkslategrey;
     opacity: .5;
+    font-size: 2vw;
+
 }
 
 .workarea {
     background-color: var(--workareacolor);
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+}
+
+.workareatop {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
 
 }
 
+.workareatop > * {
+    border: red solid 1px;
+
+
+}
+.workareatitle{
+    font-size: 5vw;
+    /* border: red solid 1px; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 25px;
+}
+
+.projecttasks {
+
+
+}
+
+.sidebar .selected {
+    background-color: var(--selectedcolor);
+}
